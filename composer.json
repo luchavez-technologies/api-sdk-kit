@@ -1,0 +1,57 @@
+{
+    "name": "luchavez/api-sdk-kit",
+    "description": "API Integration Starter Kit for Laravel SDK Packages",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "James Carlo Luchavez",
+            "email": "jamescarloluchavez@gmail.com",
+            "homepage": "https://www.linkedin.com/in/jsluchavez/"
+        },
+        {
+            "name": "Fligno",
+            "email": "apps@fligno.com",
+            "homepage": "https://fligno.com/"
+        }
+    ],
+    "homepage": "https://github.com/luchmewep/api-sdk-kit",
+    "keywords": ["Laravel", "ApiSdkKit"],
+    "require": {
+        "php": "^8.0",
+        "illuminate/support": "~8|~9",
+        "luchavez/starter-kit": "^1.0"
+    },
+    "require-dev": {
+        "roave/security-advisories": "dev-latest",
+        "phpunit/phpunit": "~9.0",
+        "orchestra/testbench": "~~6|~7"
+    },
+    "autoload": {
+        "psr-4": {
+            "Luchavez\\ApiSdkKit\\": "src/"
+        },
+        "files": [
+            "helpers/api-sdk-kit-helper.php",
+            "helpers/make-request-helper.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Luchavez\\ApiSdkKit\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Luchavez\\ApiSdkKit\\Providers\\ApiSdkKitServiceProvider"
+            ],
+            "aliases": {
+                "ApiSdkKit": "Luchavez\\ApiSdkKit\\Facades\\ApiSdkKit"
+            }
+        },
+        "branch-alias": {
+            "dev-master": "1.0.x-dev",
+            "dev-develop": "1.0.x-dev"
+        }
+    }
+}
