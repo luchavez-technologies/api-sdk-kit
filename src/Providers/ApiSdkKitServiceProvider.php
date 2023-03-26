@@ -8,7 +8,7 @@ use Luchavez\ApiSdkKit\Models\AuditLog;
 use Luchavez\ApiSdkKit\Observers\AuditLogObserver;
 use Luchavez\ApiSdkKit\Repositories\AuditLogRepository;
 use Luchavez\ApiSdkKit\Services\ApiSdkKit;
-use Luchavez\ApiSdkKit\Services\MakeRequest;
+use Luchavez\ApiSdkKit\Services\SimpleHttp;
 use Luchavez\StarterKit\Abstracts\BaseStarterKitServiceProvider as ServiceProvider;
 use Luchavez\StarterKit\Interfaces\ProviderConsoleKernelInterface;
 use Illuminate\Console\Scheduling\Schedule;
@@ -71,14 +71,10 @@ class ApiSdkKitServiceProvider extends ServiceProvider implements ProviderConsol
     public function register(): void
     {
         // Register the service the package provides.
-        $this->app->singleton('api-sdk-kit', function () {
-            return new ApiSdkKit();
-        });
+        $this->app->singleton('api-sdk-kit', fn () => new ApiSdkKit());
 
-        // Register the MakeRequest Service Container
-        $this->app->bind('make-request', function ($app, $params) {
-            return new MakeRequest(...$params);
-        });
+        // Register the SimpleHttp Service Container
+        $this->app->bind('simple-http', fn ($app, $params) => new SimpleHttp(...$params));
 
         parent::register();
     }
@@ -90,7 +86,7 @@ class ApiSdkKitServiceProvider extends ServiceProvider implements ProviderConsol
      */
     public function provides(): array
     {
-        return ['api-sdk-kit'];
+        return ['api-sdk-kit', 'simple-http'];
     }
 
     /**

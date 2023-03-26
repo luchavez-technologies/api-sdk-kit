@@ -5,13 +5,13 @@ namespace Luchavez\ApiSdkKit\Facades;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * Class MakeRequest
+ * Class SimpleHttp
  *
  * @author James Carlo Luchavez <jamescarloluchavez@gmail.com>
  *
- * @see \Luchavez\ApiSdkKit\Services\MakeRequest
+ * @see \Luchavez\ApiSdkKit\Services\SimpleHttp
  */
-class MakeRequest extends Facade
+class SimpleHttp extends Facade
 {
     /**
      * Get the registered name of the component.
@@ -20,6 +20,6 @@ class MakeRequest extends Facade
      */
     protected static function getFacadeAccessor(): string
     {
-        return 'make-request';
+        return 'simple-http';
     }
 }

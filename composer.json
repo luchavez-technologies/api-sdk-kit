@@ -32,7 +32,7 @@
         },
         "files": [
             "helpers/api-sdk-kit-helper.php",
-            "helpers/make-request-helper.php"
+            "helpers/simple-http-helper.php"
         ]
     },
     "autoload-dev": {
@@ -46,7 +46,8 @@
                 "Luchavez\\ApiSdkKit\\Providers\\ApiSdkKitServiceProvider"
             ],
             "aliases": {
-                "ApiSdkKit": "Luchavez\\ApiSdkKit\\Facades\\ApiSdkKit"
+                "ApiSdkKit": "Luchavez\\ApiSdkKit\\Facades\\ApiSdkKit",
+                "SimpleHttp": "Luchavez\\ApiSdkKit\\Facades\\SimpleHttp"
             }
         },
         "branch-alias": {
