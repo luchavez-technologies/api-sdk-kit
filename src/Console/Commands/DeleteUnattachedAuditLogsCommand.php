@@ -37,7 +37,7 @@ class DeleteUnattachedAuditLogsCommand extends Command
     {
         $unattachedLogs = AuditLog::attached(false)->where('created_at', '<=', now()->subHour());
 
-        config('api-sdk-kit.audit_log_force_delete_unattached') ? $unattachedLogs->forceDelete() : $unattachedLogs->delete();
+        apiSdkKit()->shouldForceDeleteUnattachedAuditLog() ? $unattachedLogs->forceDelete() : $unattachedLogs->delete();
 
         return self::SUCCESS;
     }

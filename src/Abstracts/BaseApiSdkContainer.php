@@ -4,13 +4,14 @@ namespace Luchavez\ApiSdkKit\Abstracts;
 
 use Luchavez\ApiSdkKit\Interfaces\CanGetHealthCheckInterface;
 use Luchavez\ApiSdkKit\Interfaces\CanGetNewApiKeysInterface;
-use Luchavez\ApiSdkKit\Services\MakeRequest;
+use Luchavez\ApiSdkKit\Services\SimpleHttp;
 use Luchavez\ApiSdkKit\Traits\UsesHttpFieldsTrait;
 
 /**
  * Class BaseApiSdkContainer
  *
  * @author James Carlo Luchavez <jamescarloluchavez@gmail.com>
+ * @deprecated
  */
 abstract class BaseApiSdkContainer
 {
@@ -32,9 +33,7 @@ abstract class BaseApiSdkContainer
         return $this instanceof CanGetNewApiKeysInterface || method_exists($this, 'getNewApiKeys');
     }
 
-    /*****
-     * GETTERS & SETTERS
-     *****/
+    /***** GETTERS & SETTERS *****/
 
     /**
      * @return string
@@ -42,11 +41,23 @@ abstract class BaseApiSdkContainer
     abstract public function getBaseUrl(): string;
 
     /**
-     * @return MakeRequest
+     * @return SimpleHttp
+     * @deprecated
      */
-    public function getMakeRequest(): MakeRequest
+    public function getMakeRequest(): SimpleHttp
     {
         return makeRequest(rtrim(trim($this->getBaseUrl()), '/'))
+            ->httpOptions($this->getHttpOptions())
+            ->headers($this->getHeaders());
+    }
+
+    /**
+     * @param bool $return_as_model
+     * @return SimpleHttp
+     */
+    public function getHttp(bool $return_as_model = true): SimpleHttp
+    {
+        return simpleHttp($this->getBaseUrl(), $return_as_model)
             ->httpOptions($this->getHttpOptions())
             ->headers($this->getHeaders());
     }

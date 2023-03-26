@@ -130,4 +130,12 @@ class ApiSdkKit
     {
         return $this->getHttpMethods($rehydrate)->flip()->get($code);
     }
+
+    /**
+     * @return bool
+     */
+    public function shouldForceDeleteUnattachedAuditLog(): bool
+    {
+        return config('api-sdk-kit.audit_log_force_delete_unattached');
+    }
 }

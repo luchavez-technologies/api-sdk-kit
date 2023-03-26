@@ -18,11 +18,11 @@ use RuntimeException;
 use Throwable;
 
 /**
- * Class MakeRequest
+ * Class SimpleHttp
  *
  * @author James Carlo Luchavez <jamescarloluchavez@gmail.com>
  */
-class MakeRequest
+class SimpleHttp
 {
     use UsesHttpFieldsTrait;
 
