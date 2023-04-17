@@ -14,7 +14,6 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Http;
-use RuntimeException;
 use Throwable;
 
 /**
@@ -34,11 +33,6 @@ class SimpleHttp
     public const AS_FORM = 'form';
 
     public const AS_MULTIPART = 'multipart';
-
-    /**
-     * @var string|null
-     */
-    protected ?string $base_url;
 
     /**
      * @var string|null
@@ -64,7 +58,7 @@ class SimpleHttp
      * @param  string|null  $base_url
      * @param  bool  $return_as_model
      */
-    public function __construct(?string $base_url = null, protected bool $return_as_model = true)
+    public function __construct(protected ?string $base_url = null, protected bool $return_as_model = true)
     {
         $this->setBaseUrl($base_url);
 
@@ -84,28 +78,18 @@ class SimpleHttp
         string $method,
         ?string $append_url = ''
     ): PromiseInterface|Response|\Illuminate\Http\Response|JsonResponse|Builder|AuditLog|null {
-        // Prepare URL
-        if (! ($this->getBaseUrl())) {
-            throw new RuntimeException('Base URL is empty.');
-        }
-
         // Set Append URL
         $this->setAppendUrl($append_url);
 
         // Get Complete URL
         $url = $this->getCompleteUrl();
 
-        if (! apiSdkKit()->getCodeByHttpMethod($method)) {
-            throw new RuntimeException('HTTP method not available.');
-        }
-
         // Execute Pre-Request Processes
         $this->runBeforeRequestCallables();
 
         // Execute the API request
-        if (is_internal_url($url)) {
-            $uri = parse_url($url)['path'];
-            $request = Request::create(uri: $uri, method: $method, parameters: $this->data, files: $this->getFiles());
+        if (! $this->base_url) { // this is for Internal API request
+            $request = Request::create(uri: $url, method: $method, parameters: $this->data, files: $this->getFiles());
             if (count($this->headers)) {
                 $request->headers->add($this->headers);
             }
@@ -114,7 +98,7 @@ class SimpleHttp
             } catch (Throwable) {
                 return null;
             }
-        } else {
+        } else { // this is for External API Request
             $client = $this->getHttp();
 
             if (count($this->files)) {
