@@ -21,7 +21,7 @@ class CanGetNewApiKeysException extends Exception
      */
     public function render(Request $request): JsonResponse
     {
-        return customResponse()
+        return simpleResponse()
             ->code(config('api-sdk-kit.get_new_api_keys_exception.code'))
             ->message(config('api-sdk-kit.get_new_api_keys_exception.message'))
             ->generate();
