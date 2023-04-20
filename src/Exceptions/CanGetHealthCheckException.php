@@ -21,7 +21,7 @@ class CanGetHealthCheckException extends Exception
      */
     public function render(Request $request): JsonResponse
     {
-        return customResponse()
+        return simpleResponse()
             ->code(config('api-sdk-kit.get_health_check_exception.code'))
             ->message(config('api-sdk-kit.get_health_check_exception.message'))
             ->generate();

@@ -49,7 +49,7 @@ class AuditLogController extends Controller
 
         event(new AuditLogCollectedEvent($data));
 
-        return customResponse()
+        return simpleResponse()
             ->data($data)
             ->message('Successfully collected record.')
             ->success()
@@ -72,7 +72,7 @@ class AuditLogController extends Controller
 
         event(new AuditLogCreatedEvent($model));
 
-        return customResponse()
+        return simpleResponse()
             ->data($model)
             ->message('Successfully created record.')
             ->success()
@@ -95,7 +95,7 @@ class AuditLogController extends Controller
 
         event(new AuditLogCreatedEvent($model));
 
-        return customResponse()
+        return simpleResponse()
             ->data($model)
             ->message('Successfully created record.')
             ->success()
@@ -115,7 +115,7 @@ class AuditLogController extends Controller
     {
         event(new AuditLogShownEvent($auditLog));
 
-        return customResponse()
+        return simpleResponse()
             ->data($auditLog)
             ->message('Successfully collected record.')
             ->success()
@@ -137,7 +137,7 @@ class AuditLogController extends Controller
 
         event(new AuditLogUpdatedEvent($auditLog));
 
-        return customResponse()
+        return simpleResponse()
             ->data($auditLog)
             ->message('Successfully updated record.')
             ->success()
@@ -159,7 +159,7 @@ class AuditLogController extends Controller
 
         event(new AuditLogUpdatedEvent($auditLog));
 
-        return customResponse()
+        return simpleResponse()
             ->data($auditLog)
             ->message('Successfully updated record.')
             ->success()
@@ -181,7 +181,7 @@ class AuditLogController extends Controller
 
         event(new AuditLogArchivedEvent($auditLog));
 
-        return customResponse()
+        return simpleResponse()
             ->data($auditLog)
             ->message('Successfully archived record.')
             ->success()
@@ -203,7 +203,7 @@ class AuditLogController extends Controller
 
         event(new AuditLogRestoredEvent($data));
 
-        return customResponse()
+        return simpleResponse()
             ->data($data)
             ->message('Successfully restored record.')
             ->success()
