@@ -53,7 +53,7 @@ MIT. Please see the [license file](license.md) for more information.
 [link-packagist]: https://packagist.org/packages/luchavez/api-sdk-kit
 [link-downloads]: https://packagist.org/packages/luchavez/api-sdk-kit
 [link-stars]: https://github.com/luchavez-technologies/api-sdk-kit
-[link-discord]: https://discord.gg/bFpDTgp3
+[link-discord]: https://discord.gg/MBxxAkQAxx
 [link-twitter]: https://twitter.com/luchaveztech
 
 [link-author]: https://github.com/luchavez-technologies
