@@ -35,9 +35,9 @@ abstract class BaseApiSdkService
     /***** GETTERS & SETTERS *****/
 
     /**
-     * @return string
+     * @return string|null
      */
-    abstract public function getBaseUrl(): string;
+    abstract public function getBaseUrl(): string|null;
 
     /**
      * @return SimpleHttp
