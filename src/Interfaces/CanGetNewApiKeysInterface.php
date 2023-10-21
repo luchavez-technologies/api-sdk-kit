@@ -2,11 +2,11 @@
 
 namespace Luchavez\ApiSdkKit\Interfaces;
 
-use Luchavez\StarterKit\Abstracts\BaseJsonSerializable;
 use GuzzleHttp\Promise\PromiseInterface;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Client\Response;
 use Illuminate\Support\Collection;
+use Luchavez\StarterKit\Abstracts\BaseJsonSerializable;
 
 /**
  * Interface CanGetNewApiKeysInterface

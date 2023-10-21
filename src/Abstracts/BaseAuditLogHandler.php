@@ -2,8 +2,8 @@
 
 namespace Luchavez\ApiSdkKit\Abstracts;
 
-use Luchavez\ApiSdkKit\Models\AuditLog;
 use Illuminate\Database\Eloquent\Model;
+use Luchavez\ApiSdkKit\Models\AuditLog;
 
 /**
  * Class BaseAuditLogHandler

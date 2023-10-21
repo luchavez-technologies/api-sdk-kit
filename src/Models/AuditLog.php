@@ -2,17 +2,17 @@
 
 namespace Luchavez\ApiSdkKit\Models;
 
-use Luchavez\ApiSdkKit\Traits\HasAuditLogFactoryTrait;
-use Luchavez\StarterKit\Casts\AsCompressedArrayCast;
-use Luchavez\StarterKit\Casts\AsCompressedCollectionCast;
-use Luchavez\StarterKit\Interfaces\HasHttpStatusCodeInterface;
-use Luchavez\StarterKit\Traits\UsesUUIDTrait;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use JetBrains\PhpStorm\Pure;
+use Luchavez\ApiSdkKit\Traits\HasAuditLogFactoryTrait;
+use Luchavez\StarterKit\Casts\AsCompressedArrayCast;
+use Luchavez\StarterKit\Casts\AsCompressedCollectionCast;
+use Luchavez\StarterKit\Interfaces\HasHttpStatusCodeInterface;
+use Luchavez\StarterKit\Traits\UsesUUIDTrait;
 
 /**
  * Class AuditLog

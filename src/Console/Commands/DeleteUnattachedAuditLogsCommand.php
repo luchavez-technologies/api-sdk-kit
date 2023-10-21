@@ -2,8 +2,8 @@
 
 namespace Luchavez\ApiSdkKit\Console\Commands;
 
-use Luchavez\ApiSdkKit\Models\AuditLog;
 use Illuminate\Console\Command;
+use Luchavez\ApiSdkKit\Models\AuditLog;
 
 /**
  * Class DeleteUnattachedAuditLogsCommand
