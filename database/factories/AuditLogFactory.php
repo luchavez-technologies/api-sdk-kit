@@ -3,8 +3,8 @@
 namespace Database\Factories;
 
 // Model
-use Luchavez\ApiSdkKit\Models\AuditLog;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Luchavez\ApiSdkKit\Models\AuditLog;
 
 /**
  * Class AuditLog

@@ -2,11 +2,11 @@
 
 namespace Luchavez\ApiSdkKit\Traits;
 
-use Luchavez\StarterKit\Traits\UsesDataParsingTrait;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 use Illuminate\Support\Stringable;
+use Luchavez\StarterKit\Traits\UsesDataParsingTrait;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**

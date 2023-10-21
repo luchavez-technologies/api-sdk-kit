@@ -2,6 +2,7 @@
 
 namespace Luchavez\ApiSdkKit\Providers;
 
+use Illuminate\Console\Scheduling\Schedule;
 use Luchavez\ApiSdkKit\Console\Commands\ApiSdkKitClearCacheCommand;
 use Luchavez\ApiSdkKit\Console\Commands\DeleteUnattachedAuditLogsCommand;
 use Luchavez\ApiSdkKit\Models\AuditLog;
@@ -11,7 +12,6 @@ use Luchavez\ApiSdkKit\Services\ApiSdkKit;
 use Luchavez\ApiSdkKit\Services\SimpleHttp;
 use Luchavez\StarterKit\Abstracts\BaseStarterKitServiceProvider as ServiceProvider;
 use Luchavez\StarterKit\Interfaces\ProviderConsoleKernelInterface;
-use Illuminate\Console\Scheduling\Schedule;
 
 /**
  * Class ApiSdkKitServiceProvider

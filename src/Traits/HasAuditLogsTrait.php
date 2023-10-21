@@ -2,9 +2,9 @@
 
 namespace Luchavez\ApiSdkKit\Traits;
 
-use Luchavez\ApiSdkKit\Models\AuditLog;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
+use Luchavez\ApiSdkKit\Models\AuditLog;
 
 /**
  * Trait HasAuditLogsTrait

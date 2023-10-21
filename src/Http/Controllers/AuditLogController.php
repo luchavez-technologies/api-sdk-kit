@@ -3,24 +3,24 @@
 namespace Luchavez\ApiSdkKit\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Luchavez\ApiSdkKit\Events\AuditLog\AuditLogArchivedEvent;
-use Luchavez\ApiSdkKit\Events\AuditLog\AuditLogCollectedEvent;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 // Model
-use Luchavez\ApiSdkKit\Events\AuditLog\AuditLogCreatedEvent;
+use Luchavez\ApiSdkKit\Events\AuditLog\AuditLogArchivedEvent;
 // Requests
+use Luchavez\ApiSdkKit\Events\AuditLog\AuditLogCollectedEvent;
+use Luchavez\ApiSdkKit\Events\AuditLog\AuditLogCreatedEvent;
 use Luchavez\ApiSdkKit\Events\AuditLog\AuditLogRestoredEvent;
 use Luchavez\ApiSdkKit\Events\AuditLog\AuditLogShownEvent;
 use Luchavez\ApiSdkKit\Events\AuditLog\AuditLogUpdatedEvent;
 use Luchavez\ApiSdkKit\Http\Requests\AuditLog\DeleteAuditLogRequest;
+// Events
 use Luchavez\ApiSdkKit\Http\Requests\AuditLog\IndexAuditLogRequest;
 use Luchavez\ApiSdkKit\Http\Requests\AuditLog\RestoreAuditLogRequest;
-// Events
 use Luchavez\ApiSdkKit\Http\Requests\AuditLog\ShowAuditLogRequest;
 use Luchavez\ApiSdkKit\Http\Requests\AuditLog\StoreAuditLogRequest;
 use Luchavez\ApiSdkKit\Http\Requests\AuditLog\UpdateAuditLogRequest;
 use Luchavez\ApiSdkKit\Models\AuditLog;
-use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 
 /**
  * Class AuditLogController

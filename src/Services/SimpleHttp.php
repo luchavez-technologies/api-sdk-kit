@@ -3,9 +3,6 @@
 namespace Luchavez\ApiSdkKit\Services;
 
 use Closure;
-use Luchavez\ApiSdkKit\DataFactories\AuditLogDataFactory;
-use Luchavez\ApiSdkKit\Models\AuditLog;
-use Luchavez\ApiSdkKit\Traits\UsesHttpFieldsTrait;
 use GuzzleHttp\Promise\PromiseInterface;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Client\PendingRequest;
@@ -14,6 +11,9 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Http;
+use Luchavez\ApiSdkKit\DataFactories\AuditLogDataFactory;
+use Luchavez\ApiSdkKit\Models\AuditLog;
+use Luchavez\ApiSdkKit\Traits\UsesHttpFieldsTrait;
 use Throwable;
 
 /**

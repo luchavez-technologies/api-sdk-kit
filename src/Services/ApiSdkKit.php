@@ -2,11 +2,11 @@
 
 namespace Luchavez\ApiSdkKit\Services;
 
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Collection;
 use Luchavez\ApiSdkKit\Abstracts\BaseAuditLogHandler;
 use Luchavez\ApiSdkKit\Models\AuditLog;
 use Luchavez\StarterKit\Traits\HasTaggableCacheTrait;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Collection;
 use RuntimeException;
 
 /**
@@ -116,7 +116,7 @@ class ApiSdkKit
      * @param  bool  $rehydrate
      * @return int|null
      */
-    public function getCodeByHttpMethod(string $method, bool $rehydrate = false): int|null
+    public function getCodeByHttpMethod(string $method, bool $rehydrate = false): ?int
     {
         return $this->getHttpMethods($rehydrate)->get($method);
     }
@@ -126,7 +126,7 @@ class ApiSdkKit
      * @param  bool  $rehydrate
      * @return string|null
      */
-    public function getHttpMethodByCode(int $code, bool $rehydrate = false): string|null
+    public function getHttpMethodByCode(int $code, bool $rehydrate = false): ?string
     {
         return $this->getHttpMethods($rehydrate)->flip()->get($code);
     }

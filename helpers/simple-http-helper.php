@@ -13,9 +13,10 @@ if (! function_exists('makeRequest')) {
      * @param  string|null  $base_url
      * @param  bool  $return_as_model
      * @return SimpleHttp
+     *
      * @deprecated
      */
-    function makeRequest(?string $base_url = null, bool $return_as_model = true): SimpleHttp
+    function makeRequest(string $base_url = null, bool $return_as_model = true): SimpleHttp
     {
         return resolve('simple-http', get_defined_vars());
     }
@@ -26,9 +27,10 @@ if (! function_exists('make_request')) {
      * @param  string|null  $base_url
      * @param  bool  $return_as_model
      * @return SimpleHttp
+     *
      * @deprecated
      */
-    function make_request(?string $base_url = null, bool $return_as_model = true): SimpleHttp
+    function make_request(string $base_url = null, bool $return_as_model = true): SimpleHttp
     {
         return makeRequest($base_url, $return_as_model);
     }
@@ -40,7 +42,7 @@ if (! function_exists('simpleHttp')) {
      * @param  bool  $return_as_model
      * @return SimpleHttp
      */
-    function simpleHttp(?string $base_url = null, bool $return_as_model = true): SimpleHttp
+    function simpleHttp(string $base_url = null, bool $return_as_model = true): SimpleHttp
     {
         return resolve('simple-http', get_defined_vars());
     }
@@ -48,11 +50,11 @@ if (! function_exists('simpleHttp')) {
 
 if (! function_exists('simple_http')) {
     /**
-     * @param string|null $base_url
-     * @param bool $return_as_model
+     * @param  string|null  $base_url
+     * @param  bool  $return_as_model
      * @return SimpleHttp
      */
-    function simple_http(?string $base_url = null, bool $return_as_model = true): SimpleHttp
+    function simple_http(string $base_url = null, bool $return_as_model = true): SimpleHttp
     {
         return simpleHttp($base_url, $return_as_model);
     }

@@ -2,10 +2,10 @@
 
 namespace Luchavez\ApiSdkKit\DataFactories;
 
-use Luchavez\ApiSdkKit\Models\AuditLog;
-use Luchavez\StarterKit\Abstracts\BaseDataFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
+use Luchavez\ApiSdkKit\Models\AuditLog;
+use Luchavez\StarterKit\Abstracts\BaseDataFactory;
 
 /**
  * Class AuditLogDataFactory
