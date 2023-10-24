@@ -4,14 +4,13 @@ namespace Luchavez\ApiSdkKit\Models;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use JetBrains\PhpStorm\Pure;
 use Luchavez\ApiSdkKit\Traits\HasAuditLogFactoryTrait;
 use Luchavez\StarterKit\Casts\AsCompressedArrayCast;
 use Luchavez\StarterKit\Casts\AsCompressedCollectionCast;
 use Luchavez\StarterKit\Interfaces\HasHttpStatusCodeInterface;
+use Luchavez\StarterKit\Traits\ModelOwnedTrait;
 use Luchavez\StarterKit\Traits\UsesUUIDTrait;
 
 /**
@@ -26,6 +25,12 @@ class AuditLog extends Model implements HasHttpStatusCodeInterface
     use UsesUUIDTrait;
     use SoftDeletes;
     use HasAuditLogFactoryTrait;
+    use ModelOwnedTrait {
+        ModelOwnedTrait::owner as user;
+    }
+
+    // For ModelOwnedTrait
+    const OWNER_ID = 'user_id';
 
     /**
      * Get the route key for the model.
@@ -60,18 +65,6 @@ class AuditLog extends Model implements HasHttpStatusCodeInterface
     public function auditLoggable(): MorphTo
     {
         return $this->morphTo();
-    }
-
-    /**
-     * @return BelongsTo|null
-     */
-    public function user(): ?BelongsTo
-    {
-        if ($model = starterKit()->getUserModel()) {
-            return $this->belongsTo($model);
-        }
-
-        return null;
     }
 
     /***** ACCESSORS & MUTATORS *****/
@@ -200,7 +193,6 @@ class AuditLog extends Model implements HasHttpStatusCodeInterface
      *
      * @return bool
      */
-    #[Pure]
     public function failed(): bool
     {
         return $this->serverError() || $this->clientError();

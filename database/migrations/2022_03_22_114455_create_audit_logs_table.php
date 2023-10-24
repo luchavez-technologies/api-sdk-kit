@@ -29,7 +29,7 @@ return new class() extends Migration
             static function (Blueprint $table) {
                 $table->id();
                 $table->uuid('uuid')->unique();
-                $table->foreignIdFor(starterKit()->getUserModel())->nullable()->constrained();
+                $table->owned(column: 'user_id'); // from luchavez/starter-kit
                 $table->nullableMorphs('audit_loggable');
                 $table->text('url');
                 $table->unsignedTinyInteger('method');
